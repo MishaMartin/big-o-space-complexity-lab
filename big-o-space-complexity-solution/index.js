@@ -1,33 +1,32 @@
-
 // 1) -------------------------------------------------------
 function printNumbers(numbers) {
-  for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i < numbers.length; i++) {
     console.log(numbers[i])
-  }
+}
 }
 
 // Q: Given an array of numbers, what is the space complexity of this function?
-// ANSWER:Linear O(n)
+// ANSWER: O(n)
 
 
 // 2) You are challenged to find the 4th element of the array, and you came up with this solution:
 
 function findFourth(numbers) {
-  var count = 1
-  var answer = 0
+var count = 1
+var answer = 0
 
-  for (let i = 0; i < numbers.length; i++) {
-      if (count === 4) {
-          answer = numbers[i]
-          return
-      } else {
-          count += 1
-      }
-  }
+for (let i = 0; i < numbers.length; i++) {
+    if (count === 4) {
+        answer = numbers[i]
+        return
+    } else {
+        count += 1
+    }
+}
 }
 
 // Q: Given an array of numbers, what is the space complexity of this function?
-// ANSWER: Linear O(n)
+// ANSWER: O(n)
 
 
 // 3) -------------------------------------------------------
@@ -37,62 +36,62 @@ function printA() {
     }
 }
 // Q: What is the space complexity of this function?
-// ANSWER: Linear O(1)
+// ANSWER: O(1)
 
 
 // 4) -------------------------------------------------------
 function printB(number) {
-  for (let i = 0; i < number; i++) {
+for (let i = 0; i < number; i++) {
     console.log(i)
-  }
+}
 }
 // Q: What is the space complexity of the function?
-// ANSWER:Linear O(n)
+// ANSWER: O(n)
 
 
 // 5) -------------------------------------------------------
 function printC(num, arr) {
-  for (let i = 0; i < num; i++) {
+for (let i = 0; i < num; i++) {
     for (let j = 0; j < arr.length; j++) {
-      console.log(j)
+    console.log(j)
     }
-  }
+}
 }
 // Q: What is the space complexity of the function?
-// ANSWER:Quadratic O(n^2)
+// ANSWER: O(n^2)
 
 
 // 6) -------------------------------------------------------
 function nested(numbers) {
-  for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i < numbers.length; i++) {
     for (let j = 0; j < numbers.length; j++) {
-      console.log(j)
+    console.log(j)
     }
-  }
+}
 }
 
 // Q: What is the space complexity of this function?
-// ANSWER: Quadratic function O(n^2)
+// ANSWER: O(n^2)
 
 
 // 7) -------------------------------------------------------
 let numbers = [76,35,73,13,4,88,23,12,86,1,54,9,10,2]
 // remember numbers could be reassigned, added to, etc.
 let newNumbersA = numbers.filter((num) => {
-  return num < 5
+return num < 5
 })
 
 // Q: What is the space complexity of the filter higher-order function?
-// ANSWER:Linear O(n)
+// ANSWER: O(n)
 
 
 // 8) -------------------------------------------------------
 // remember numbers (in #7) could be reassigned, added to, etc.
 let newNumbersB = numbers.map((num) => {
-  return num * 3
+return num * 3
 })
 // Q: What is the space complexity of the map higher-order function?
-// ANSWER: Linear O(n)
+// ANSWER: O(n)
 
 
 // 9) -------------------------------------------------------
@@ -101,43 +100,43 @@ let newNumbersB = numbers.map((num) => {
 // ex: [[1,2,3], ['a','b','c'], [5,null,'x',0]]
 // NOT: [[1,2,3], ['a', ['an', 'invalid', '(grand)child', 'array], 'b', 'c'], [6,7,8,9,10]]
 function arrInception(parentArr) {
-  for (let i = 0; i < parentArr.length; i++) {
+for (let i = 0; i < parentArr.length; i++) {
     let childArr = parentArr[i]
     for (let j = 0; j < childArr.length; j++) {
-      console.log(`value at index ${j} in child arr (at ${i} in parent arr): ${childArr[j]}`)
+    console.log(`value at index ${j} in child arr (at ${i} in parent arr): ${childArr[j]}`)
     }
-  }
+}
 }
 // Q: What is the space complexity of this function?
-// ANSWER:Linear O(n)
+// ANSWER: O(n)
 
 
 // 10) You are challenged to find the squared value of each number in an array. This is not the best solution, but it is what you come up with anyway...
 
 function getNumbersSquared(numbers) {
-  let numbers2 = [...numbers]
+let numbers2 = [...numbers]
 
-  let answers = []
+let answers = []
 
-  for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i < numbers.length; i++) {
     let squaredValue = numbers[i] * numbers2[i]
     answers.push(squaredValue)
-  }
-  return answers
+}
+return answers
 }
 
 // Q: What is the space complexity of this function?
-// ANSWER: Linear O(n)
+// ANSWER: O(n)
 
 
 // Q: Is it possible to improve this function's space complexity? If it is, write a new function below.
-// ANSWER: no because they are all as concise as possible
+// ANSWER:
 
 
 // 11) Here are two functions that you came up with to count how many of each letter is in a given string and return an object with the individual counts: 
 
 function countLetters(str) {
-  let letters = {
+let letters = {
     a: 0,
     b: 0,
     c: 0,
@@ -164,34 +163,34 @@ function countLetters(str) {
     x: 0,
     y: 0,
     z: 0,
-  }
+}
 
-  str = str.toLowerCase()
-  const splitStr = str.split('')
+str = str.toLowerCase()
+const splitStr = str.split('')
 
-  splitStr.forEach(char => {
+splitStr.forEach(char => {
     if (letters.hasOwnProperty(char)) {
-      letters[char]++
+    letters[char]++
     }
-  })
+})
 
-  return letters
+return letters
 }
 
 /////////////////////////////
 
 function countLettersRoundTwo(str) {
-  // this contains a RegEx or Regular Expression, feel free to google
-  str = str.toLowerCase().replace(/([^a-z])+/g,'')
-  let letters = {}
-  for (let i = 0; i < str.length; i++) {
+// this contains a RegEx or Regular Expression, feel free to google
+str = str.toLowerCase().replace(/([^a-z])+/g,'')
+let letters = {}
+for (let i = 0; i < str.length; i++) {
     if (letters.hasOwnProperty(str[i])) {
-      letters[str[i]]++
+    letters[str[i]]++
     } else {
-      letters[str[i]] = 0
+    letters[str[i]] = 0
     }
-  }
-  return letters
+}
+return letters
 }
 
 
@@ -200,36 +199,36 @@ function countLettersRoundTwo(str) {
 
 
 // Q: What is the space complexity of each? 
-// ANSWER - countLetters: Linear O(n)
-// ANSWER - countLettersRoundTwo: Linear O(n)
+// ANSWER - countLetters: O(n)
+// ANSWER - countLettersRoundTwo: O(n)
 
 
 // Q: Explain how you came to your conclusions about the space complexity of each function. 
-// ANSWER: There is a variable that can change in size so the cannot be complex but they are not nested for loops or functions so they are not quadratic. So, they are both linear.
+// ANSWER: Each function is dependent on the size of the string
 
 
 // 12) Memoization
 /*
-  Without looking up memoization examples on
-  the internet, let's write a method in a class 
-  that memoizes results.
+Without looking up memoization examples on
+the internet, let's write a method in a class 
+that memoizes results.
 
-  Create a class called Factorial 
+Create a class called Factorial 
 
-  We'll be calculating factorials in this class 
+We'll be calculating factorials in this class 
     - factorial is a number multiplied by all the numbers 
-      below it besides 0
+    below it besides 0
     - so the factorial of 4 is 24, which is 4*3*2*1
 
-  Inside the class, create a constructor function 
+Inside the class, create a constructor function 
     - the constructor shouldn't take in any params
     - it should initialize this.cache which should
-      be an empty object
+    be an empty object
 
-  In the class, write a method called calcFac
+In the class, write a method called calcFac
     - the function should take in a num as an argument 
     - it should check if an answer for this input exists
-      in the cache object already 
+    in the cache object already 
         - if it does, return that answer 
     - otherwise:
         - create an answer variable
@@ -238,77 +237,92 @@ function countLettersRoundTwo(str) {
         - return the answer
 */
 
-// CODE HERE 
 class Factorial {
-  constructor(){
+constructor() {
     this.cache = {}
-  }
+}
 
-  calcFac(num) {
-    if(this.cache.hasOwnProperty(num)) {
-      console.log('Fetching from cache')
-      return this.cache[num]
-    } else {
-      let answer = 1
-      for(let i = num; i > 0; i--){
-        console.log(answer)
-        answer *= i
-      }
-      this.cache[num] = answer
-      return answer
+calcFac(num) {
+    if (this.cache.hasOwnProperty(num)) {
+        return this.cache[num]
     }
-    }}
-  
-
+    let answer = 1
+    for (let i = num; i > 0; i--) {
+        answer *= i
+    }
+    this.cache[num] = answer
+    return answer
+}
+}
 
 
 
 /* 
-  We want to test a non-memoized version of this too, 
-  so copy and paste your calcFac function and save it 
-  to this new function called noCacheCalcFac
-  (psst...don't forget to uncomment it and remove
-  references to the cache)
+We want to test a non-memoized version of this too, 
+so copy and paster your calcFac function and save it 
+to this new function called noCacheCalcFac
+(psst...don't forget to uncomment it and remove
+references to the cache)
 */
 
-// function noCacheCalcFac(num) {
-    //CODE HERE
-// }
+
+function nonCacheCalcFac(num) {
+    let answer = 1
+    for (let i = num; i > 0; i--) {
+        answer *= i
+    }
+    return answer
+}
 
 /*
-  The logs below will show you how long these functions
-  take to run, fill out the CAPITALIZED PARTS before
-  running this file 
-  (run using 'node index.js' in the terminal)
+The logs below will show you how long these functions
+take to run, fill out the CAPITALIZED PARTS before
+running this file 
+(run using 'node index.js' in the terminal)
 */
 
-const myFac = // CREATE A NEW INSTANCE OF THE FACTORIAL CLASS
+let myFac = new Factorial
 
 console.time("not memoized factorial");
-console.log(/* CALL NOCACHECALCFAC PASSING IN 8*/)
-console.log(/* CALL NOCACHECALCFAC PASSING IN 8*/)
-console.log(/* CALL NOCACHECALCFAC PASSING IN 8*/)
-console.log(/* CALL NOCACHECALCFAC PASSING IN 8*/)
+console.log(nonCacheCalcFac(8))
+console.log(nonCacheCalcFac(8))
+console.log(nonCacheCalcFac(8))
+console.log(nonCacheCalcFac(8))
 console.timeEnd("not memoized factorial");
 
 console.time("memoized factorial");
-console.log(/* CALL THE CALCFAC METHOD OFF OF MYFAC 8*/)
-console.log(/* CALL THE CALCFAC METHOD OFF OF MYFAC 8*/)
-console.log(/* CALL THE CALCFAC METHOD OFF OF MYFAC 8*/)
-console.log(/* CALL THE CALCFAC METHOD OFF OF MYFAC 8*/)
+console.log(myFac.calcFac(8))
+console.log(myFac.calcFac(8))
+console.log(myFac.calcFac(8))
+console.log(myFac.calcFac(8))
 console.timeEnd("memoized factorial");
+
 
 // 13) Memoization Challenge
 /*
-  Write another class that contains a cache and a method 
+Write another class that contains a cache and a method 
 
-  The method should cache answers
+The method should cache answers
 
-  The method should be constant (you can use examples 
-  we've covered or come up with your own)
+The method should be constant (you can use examples 
+we've covered or come up with your own)
 */
 
-// CODE HERE
+class AddWithCache {
+    constructor() {
+        this.cache = {}
+    }
+    
+    addThreeNums(num1, num2, num3) {
+        let propName = `${num1}${num2}${num3}`
+        if (this.cache.hasOwnProperty(propName)) {
+            return this.cache[propName]
+        }
+        let answer = num1 + num2 + num3
+        this.cache[propName] = answer
+        return answer
+    }
+}
 
 /*
     Copy and paste the method outside the class and
@@ -316,7 +330,10 @@ console.timeEnd("memoized factorial");
     to the cache)
 */
 
-// CODE HERE 
+function nonCacheAddThreeNums(num1, num2, num3) {
+    let answer = num1 + num2 + num3
+    return answer
+}
 
 /*
     Before you see how much time they take, make a 
@@ -327,18 +344,18 @@ console.timeEnd("memoized factorial");
 
 // Now fill this out and run your file
 
-// CREATE A NEW INSTANCE OF YOUR CLASS
+const myAdder = new AddWithCache()
 
 console.time("not memoized function time");
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
+console.log(nonCacheAddThreeNums(4,5,6))
+console.log(nonCacheAddThreeNums(4,5,6))
+console.log(nonCacheAddThreeNums(4,5,6))
+console.log(nonCacheAddThreeNums(4,5,6))
 console.timeEnd("not memoized function time");
 
 console.time("memoized function time");
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
+console.log(myAdder.addThreeNums(4,5,6))
+console.log(myAdder.addThreeNums(4,5,6))
+console.log(myAdder.addThreeNums(4,5,6))
+console.log(myAdder.addThreeNums(4,5,6))
 console.timeEnd("memoized function time");
